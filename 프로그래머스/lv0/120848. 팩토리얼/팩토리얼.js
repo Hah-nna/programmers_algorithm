@@ -1,17 +1,11 @@
 function solution(n) {
-    var i = 1;
-    let answer = 1;
-    
-    while(answer <= n) {
-        i++
-        answer *= i
-    }
-    
-    // for(let i = 1; i < n; i++) {
-    //     num *= i
-    //     if(num <= n) answer = i
-    // }
-   return i - 1
+  var i = 1;
+  let num = 1;
+
+  while (num <= n) {
+    i++;
+    num *= i;
+  }
+
+  return i - 1;
 }
-
-
