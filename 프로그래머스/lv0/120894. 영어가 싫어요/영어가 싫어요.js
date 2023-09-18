@@ -3,7 +3,6 @@
 // 이렇게 푼 내가 너무 민망하다^^...
 // 문제 자체도 인덱스 사용하리고 내준 문제인데 ㅎ...
 function solution(numbers) {
-<<<<<<< HEAD
   let numArr = [
     "one",
     "two",
@@ -126,15 +125,25 @@ function solution(numbers) {
 
   return Number(num);
 }
-=======
-    let numArr = ['zero','one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-    
-    numArr.forEach((str, idx) => {
-        console.log(str, idx)
-        numbers = numbers.replaceAll(str, idx)
-        console.log(numbers)
-    })
-     return Number(numbers)
-    }
 
->>>>>>> 7f7cd8c2757089805655334c57107343630e7a05
+function solution(numbers) {
+  let numArr = [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+  ];
+
+  numArr.forEach((str, idx) => {
+    console.log(str, idx);
+    numbers = numbers.replaceAll(str, idx);
+    console.log(numbers);
+  });
+  return Number(numbers);
+}
