@@ -15,5 +15,5 @@ function solution(n) {
         // 만약 나머지가 0이 안 되면 count++하고 다시 2로 나눠보기
         // 그런데도 나머지가 0이 아니면 종료
     }
-    return [...new Set(answer)]
+    return [...new Set(answer)].sort((x,y) => x - y)
 }
