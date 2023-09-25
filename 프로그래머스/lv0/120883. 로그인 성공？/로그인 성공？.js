@@ -24,6 +24,7 @@ function solution(id_pw, db) {
 }
 
 // Map 사용
+// Map도 잘 활용하고 싶다
 function solution(id_pw, db) {
   const [userId, userPw] = id_pw;
   const dataBase = new Map(db);
