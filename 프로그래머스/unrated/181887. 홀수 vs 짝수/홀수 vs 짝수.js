@@ -6,5 +6,5 @@ function solution(num_list) {
         return idx % 2 === 0 ? odd += val : even += val
     })
    
-   return odd === even ? odd : Math.max(odd, even)
+   return Math.max(odd, even)
 }
