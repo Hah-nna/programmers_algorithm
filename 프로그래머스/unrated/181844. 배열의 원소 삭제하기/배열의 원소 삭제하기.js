@@ -4,11 +4,13 @@ function solution(arr, delete_list) {
     // 인덱스 찾으면 arr에서 바로 삭제함(splice)
     // 최종적으로 arr 리턴
     
-    for(let i = delete_list[delete_list.length - 1]; i >= 0; i--) {
-        let idx = arr.indexOf(delete_list[i]) 
-        if(idx > -1) {
-            arr.splice(idx, 1)
-        }
-    }
-    return arr
+    // for(let i = delete_list[delete_list.length - 1]; i >= 0; i--) {
+    //     let idx = arr.indexOf(delete_list[i]) 
+    //     if(idx > -1) {
+    //         arr.splice(idx, 1)
+    //     }
+    // }
+    // return arr
+
+    return arr.filter((val) => !delete_list.includes(val))
     }
