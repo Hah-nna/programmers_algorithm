@@ -24,3 +24,19 @@ function solution(arr) {
   }
   return result;
 }
+
+function solution(arr) {
+  let answer = Array.from(arr).fill(1);
+  // arr.length만큼의 길이인 새로운 배열을 만든다(1로 채워진)
+  // i와 나머지 수를 쭉 비교한다
+  // arr[0] -> 나머지 수 비교
+  // 완료되면 arr[1] -> 나머지 수 비교
+  // => 계속 반복
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] < arr[j]) answer[i]++;
+    }
+  }
+
+  return answer;
+}
