@@ -21,3 +21,10 @@ function solution(s) {
   }
   return "YES";
 }
+
+function solution(str) {
+  let answer = str;
+  answer = answer.toLowerCase();
+
+  return answer === [...answer].sort((x, y) => y - x).join("") ? "YES" : "NO";
+}

@@ -14,3 +14,10 @@ function solution(str) {
   }
   return parseInt(answer);
 }
+
+// 숫자인 것만 매치해서 숫자로 바꿈
+function solution(str) {
+  const regexp = /[0-9]/g;
+  const a = str.match(regexp).join("");
+  return Number(a);
+}
