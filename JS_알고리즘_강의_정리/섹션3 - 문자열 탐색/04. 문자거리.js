@@ -54,5 +54,43 @@ function solution(s, t) {
   return answer;
 }
 
-let str = "teachermode";
-console.log(solution(str, "e"));
+let str = "KKHSSSSSSSE";
+console.log(solution(str));
+
+// 다시 풀어보았음
+function solution(str, t) {
+  let answer = [];
+  let distance = 0;
+
+  for (let i of str) {
+    if (i === t) {
+      distance = 0;
+      answer.push(distance);
+    } else {
+      distance++;
+      answer.push(distance);
+    }
+  }
+  // [1, 0, 1, 2, 3, 0, 1, 2, 3, 4, 0]
+
+  distance = 0;
+  for (let i = answer.length - 1; i >= 0; i--) {
+    if (t === str[i]) distance = 0;
+    else {
+      distance++;
+      answer[i] = distance < answer[i] ? distance : answer[i];
+      // 0 0
+      // 4 = 1 < 4 ? 1
+      // 3 = 2 < 3 ? 2
+      // 2 = 3 < 2 x 2
+      // 1 = 4 < 1 x 1
+      // 0 0
+      // 3 = 1 < 3 ? 1
+      // 2 = 2 < 2 x 2
+      // 1 = 3 < 1 x 1
+      // 0 0
+      // 1 = 1 < 1 x 1
+    }
+  }
+  return [...answer];
+}

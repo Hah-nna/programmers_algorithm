@@ -37,3 +37,22 @@ function solution(s) {
 }
 let str = "KKHSSSSSSSE";
 console.log(solution(str));
+
+// 다시 풀어본 버젼
+
+function solution(str) {
+  let count = 1;
+  let answer = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      count++;
+    } else {
+      answer += str[i];
+      answer += count <= 1 ? "" : String(count);
+      count = 1;
+    }
+  }
+
+  return answer;
+}
