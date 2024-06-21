@@ -25,3 +25,42 @@ function solution(arr) {
 
 let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
 console.log(solution(arr));
+
+// 내가 다시 푼 방법
+
+function isPrime(num) {
+  if (num === 1) return false;
+  if (num === 2) return true;
+
+  for (let i = 2; i <= num / 2; i++) {
+    if (num % i === 0) return false;
+  }
+
+  return true;
+}
+
+function solution(arr) {
+  let num = "";
+  let answer = "";
+  // 두ㅣ집기
+  // 소수인지 판별
+  // 소수라면 answer에 더하기
+
+  for (let i = 0; i < arr.length; i++) {
+    let split = String(arr[i]).split("");
+    num = 0;
+
+    for (let j = split.length - 1; j >= 0; j--) {
+      num += split[j];
+    }
+
+    const primeNumber = isPrime(Number(num));
+    if (primeNumber) {
+      let a = +num;
+      console.log("a", a);
+      answer += String(a) + " ";
+    }
+  }
+
+  return answer;
+}
