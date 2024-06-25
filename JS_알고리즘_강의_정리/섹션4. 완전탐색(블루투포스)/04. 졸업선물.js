@@ -51,6 +51,37 @@ console.log(solution(28, arr));
    그리고 상품 값이랑 배송비랑 더한 값이 남은 돈보다 크면 더이상 물품을 구매할 수 없으므로 멈춘다
    횟수를 리턴한다
    솔직히 이렇게 흐름만 이해했는데 내가 저렇게 하나부터 열까지 코드를 짤 수 있으면 졸겠다
-   반복학습 고고 
-   * 
+   반복학습 고고
+   *
    */
+
+// 다시 풀어봄
+// 앞서 풀었던 멘토링과 같이 기준을 잡고 하나씩 다 돌면서 확인해야함
+function solution(price, arr) {
+  let answer = 0;
+  // 정렬을 해줌
+  // 작은 수부터 하나씩 더해가면서 많은 갯수를 살 수 있기 때문임
+  let a = arr.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+
+  for (let i = 0; i < a.length; i++) {
+    // 기준이 되는 금액(leftMoney)
+    // 인자로 주어진 프라이스에서 앞의 수를 나누기 2한 금액과 배송비를 더한 값이 남은돈이 됨
+    let leftMoney = price - (a[i][0] / 2 + a[i][1]);
+
+    // 위에서 기준이 되는 상품을 하나 골랐으니까 카운트 변수에 1 할당
+    let count = 1;
+
+    for (let j = 0; j < a.length; j++) {
+      // 기준이 되는 금액을 더하지 않아야하기 때문에 j !== i라는 조건 붙임
+      // 크면 멈추고 작거나 같으면 남은 돈에서 빼줌
+      // 그리고 카운트를 더해줌
+      if (j !== i && a[j][0] + a[j][1] > leftMoney) break;
+      if (j !== i && a[j][0] + a[j][1] <= leftMoney) {
+        leftMoney -= a[j][0] + a[j][1];
+        count++;
+      }
+    }
+    answer = Math.max(answer, count);
+  }
+  return answer;
+}
