@@ -19,8 +19,8 @@ function solution(arr1, arr2) {
 
   // p1과 p2중에 뭐가 끝났는지 모르니까 둘다 length보다 작을때까지 돌려서 result에 넣음
 
-  while (p1 < arr1.legnth) result.push(arr1[p1]);
-  while (p2 < arr2.length) result.push(arr2[p2]);
+  while (p1 < arr1.legnth) result.push(arr1[p1++]);
+  while (p2 < arr2.length) result.push(arr2[p2++]);
 
   return result;
 }
