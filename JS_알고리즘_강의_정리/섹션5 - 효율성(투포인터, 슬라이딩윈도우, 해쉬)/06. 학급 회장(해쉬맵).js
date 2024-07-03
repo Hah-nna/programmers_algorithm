@@ -28,3 +28,37 @@ function solution(s) {
 
 let str = "BACBACCACCBDEDE";
 console.log(solution(str));
+
+// 다시 풀어봄
+// 굳이 split할 필요는 없음
+function solution(str) {
+  const map = new Map();
+  let a = str.split("");
+  for (let alpha of a) {
+    // 해당 알파벳을 키, 밸류를 1로 설정
+    // 만약 해당 알파벳을 키로 이미 가지고 있으면 밸류에 1더하기
+
+    if (!map.has(alpha)) {
+      map.set(alpha, 1);
+    } else {
+      let val = map.get(alpha);
+      map.set(alpha, val + 1);
+    }
+  }
+
+  // [키, 값]을 순회하면서 밸류가 max 보다 크다면 answer = key
+  let max = 0;
+  let answer = "";
+  for (let key of map.keys()) {
+    let val = map.get(key);
+    if (max < val) {
+      max = val;
+      answer = key;
+    }
+  }
+  return answer;
+}
+
+let a = "AbaAeCe";
+let b = "baeeACA";
+console.log(solution(a, b));
