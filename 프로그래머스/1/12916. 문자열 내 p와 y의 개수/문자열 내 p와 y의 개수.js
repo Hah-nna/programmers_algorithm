@@ -1,11 +1,6 @@
 function solution(s){
-    var answer = true;
-    let str = s.toLowerCase()
-    let a=b=0;
+    let a = (s.match(/p/ig) || []).length
+    let b = (s.match(/y/ig) || []).length
     
-    for(let i of str) {
-        if(i === 'p') a++
-        else if(i === 'y') b++
-    }
-    return a === b ? answer : false
+    return a === b ? true : false
 }
