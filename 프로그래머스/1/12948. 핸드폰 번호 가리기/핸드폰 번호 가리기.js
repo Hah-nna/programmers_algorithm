@@ -1,8 +1,11 @@
 function solution(pn) {
-    let a = [...pn].slice(pn.length - 4).join('')
-    // let b = pn.split(a).join('')
-    let regexp = /[0-9]/g
-    let b = [...pn].slice(0, pn.length - 4).join('').replaceAll(regexp, '*')
-    return b + a
+    // let back = [...pn].slice(pn.length - 4).join('')
+    // let regexp = /[0-9]/g
+    // let front = [...pn].slice(0, pn.length - 4).join('').replaceAll(regexp, '*')
+    // return front + back
+    
+    let back = [...pn].slice(-4).join('')
+    let front = '*'.repeat(pn.length - 4)
+    return front + back
 
 }
