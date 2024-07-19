@@ -7,7 +7,7 @@ function solution(d, budget) {
         else if(budget === 0) {
             count++
             return count
-        } else if(budget < 0) return count
+        } else if(budget < 0) break;
     }
     
     
