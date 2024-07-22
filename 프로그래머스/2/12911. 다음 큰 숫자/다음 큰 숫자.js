@@ -5,16 +5,23 @@ function solution(n) {
     // 만약 같다면 break
     // 아니라면 숫자++
     
-    function countOne(x) {
-        return x.toString(2).split('0').join('').length 
-    }
+//     function countOne(x) {
+//         return x.toString(2).split('0').join('').length 
+//     }
     
-    const m = countOne(n)
-    let next = n + 1
+//     const m = countOne(n)
+//     let next = n + 1
     
-    while(m !== countOne(next)) {
-        next++
-    }
+//     while(m !== countOne(next)) {
+//         next++
+//     }
     
-    return next
+//     return next
+    
+    var i, j;
+    for (i = 0; !(n & 1); i++) {n = n >> 1; } 
+    for (j = 0; n & 1; i++, j++) {n = n >> 1; } 
+    for (j--, n++; i !== j; i--) {n = n << 1; }
+    for (i; i; i--, n++) {n = n << 1; } 
+    return n;
 }
