@@ -1,25 +1,35 @@
 function solution(n, arr1, arr2) {
     var answer = [];
-    // 각 arr1[i] arr2[i]를 이진수로 변경
-    // arr1[i][j] arr2[i][j]
-    // 둘다 1이면 str += "#"
-    // 하나라도 0이면 str += " "(공백)
-    // j 루프 끝나면 answer.push(str)
+    
     for(let i = 0; i < n; i++) {
-        let arr11 = arr1[i].toString(2)
-        let arr22 = arr2[i].toString(2)
-        let str = ''
-        for(let j = 0; j <= n; j++) {
-           let binary1 = arr11.padStart(n, "0")
-           let binary2 = arr22.padStart(n, "0")
-           
-           if(binary1[j] === '1' || binary2[j] === '1') {
-               str += '#'
-           } else if(binary1[j] === '0' && binary2[j] === '0') {
-               str += ' '
-           }
+        let binary1 = arr1[i].toString(2).padStart(n, "0");
+        let binary2 = arr2[i].toString(2).padStart(n, "0");
+        let str = '';
+        
+        for(let j = 0; j < n; j++) {
+            str += (binary1[j] === '1' || binary2[j] === '1') ? '#' : ' ';
         }
-        answer.push(str)
+        
+        answer.push(str);
     }
+    
     return answer;
 }
+
+// 내장 함수를 안 쓴 버전 
+// function solution(n, arr1, arr2) {
+//     let num1, num2, s;
+//     let answer = [];
+//     for (let i=0; i<n; i++){
+//         num1 = arr1[i];
+//         num2 = arr2[i];
+//         s = '';
+//         for (let j=0; j<n; j++){
+//             s = (num1%2 + num2%2) ? '#'+s : ' '+s;
+//             num1 = Math.floor(num1/2);
+//             num2 = Math.floor(num2/2);
+//         }
+//         answer.push(s);
+//     }    
+//     return answer;
+// }
