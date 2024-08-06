@@ -28,7 +28,3 @@ function solution() {
     })
     .join("");
 }
-/**
- * 참고 블로그
- * https://medium.com/@su_bak/array-prototype-sort-%EA%B0%80-%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94-%EB%B0%A9%EC%8B%9D-c3bd2e033b7a
- */
