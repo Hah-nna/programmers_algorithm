@@ -6,9 +6,7 @@ function solution(cards1, cards2, goal) {
     for(let word of goal) {
         if(word === cards1[p1]) p1++
         else if(word === cards2[p2]) p2++
-        else if(word !== cards1[p1] || word !== cards2[p2]) {
-            return "No"
-        }
+        else return "No"
     }
     return answer;
 }
