@@ -1,12 +1,9 @@
 function solution(nums) {
     var answer = 0;
     const n = nums.length / 2
-    nums = nums.sort((x,y) => x - y)
     const set = new Set([...nums])
     
-    // {321}
-    // {324}
-    // {32}
+    
     for(let i = 0; i < n; i++) {
         console.log("a1", answer)
         if(set.size < n) {
@@ -14,12 +11,22 @@ function solution(nums) {
             break;
         } else {
             answer++
-        // console.log("a2", answer)
         if(answer === n) break;    
         }
         
     }
-    // console.log(set)
     
     return answer
 }
+
+
+// function solution(nums) {
+//     let answer = 0;
+//     const select = nums.length/2;
+//     const check = nums.reduce((total,cur) => {
+//         total[cur] ? total[cur]++ : total[cur] = 1;
+//         return total;
+//     },{});
+//     const checkLeng = Object.keys(check).length;
+//     return checkLeng > select ? select : checkLeng;
+// }
