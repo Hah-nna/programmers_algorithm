@@ -17,3 +17,23 @@ function solution(s) {
 
 let a = "(A(BC)D)EF(G(H)(IJ)K)LM(N)";
 console.log(solution(a));
+
+// 다시 풀기 02
+// flag라는 변수를 이용해 풀어봄;; 근데 이거 스택으로 풀어야하는데 또 순회해버렸네
+function solution(a) {
+  const stack = [];
+  let flag = 0;
+  let answer = "";
+  // flag === 0 && str = ( => flag++
+  // flag !== 0 && str = ) => flag--
+  // flag === 0 && str !== ( && str !== ) answer += "str"
+
+  for (const str of a) {
+    if (str === "(") flag++;
+    else if (str === ")") flag--;
+    else if (flag === 0 && str !== "(" && str !== ")") {
+      answer += str;
+    }
+  }
+  return answer;
+}

@@ -76,3 +76,35 @@ function solution(a, b) {
 
   return answer;
 }
+
+// 다시 풀어본 방법 03
+function solution(a, b) {
+  let answer = "YES";
+  const str1 = new Map();
+  const str2 = new Map();
+
+  // 해시만들기
+  for (let i = 0; i < a.length; i++) {
+    str1.set(a[i], (str1.get(a[i]) || 0) + 1);
+    str2.set(b[i], (str2.get(b[i]) || 0) + 1);
+  }
+
+  console.log("str1", str1);
+  console.log("str2", str2);
+  // 값 찾기
+  // 하나라도 다르거나 없으면 No 리턴
+
+  for (const [key, value] of str1) {
+    let aa = str1.get(key);
+    let bb = str2.get(key);
+    console.log("aa", aa);
+    console.log("bb", bb);
+    if (str1.get(key) !== str2.get(key)) answer = "NO";
+  }
+
+  return answer;
+}
+
+// let a = "abaCC";
+// let b = "Caaab";
+// console.log(solution(a, b));
