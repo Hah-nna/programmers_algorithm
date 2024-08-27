@@ -1,3 +1,4 @@
+// 방법01
 function solution(elements) {
   const n = elements.length;
   const arr = [...elements, ...elements];
@@ -19,6 +20,7 @@ function solution(elements) {
   return set.size;
 }
 
+// 방법02
 function solution(elements) {
   const circular = [...elements, ...elements];
   const set = new Set();
