@@ -1,33 +1,25 @@
-const getDayUntilCompleted = (num, speedsNum) => {
-  return Math.ceil((100 - num ) / speedsNum)
+
+const getDayUntilDone = (num, speed) => {
+    return Math.ceil((100 - num) / speed)
 }
 
-function solution(progresses, speeds) {
- var answer = [];
- const dayRequired = progresses.map((val, idx) => getDayUntilCompleted(val, speeds[idx]))
+function solution(p, s) {
+ const days = p.map((val, idx) => getDayUntilDone(val, s[idx]))   
+ let answer = []
+ let maxDay = days[0]
+ let count = 0;
 
-let maxDay = dayRequired[0]
-
-// [7 3 9]
-// [5,10,1,1,20,1]
-
-let point = 0
-
-for(let i = 0; i < dayRequired.length; i++) {
-  if(dayRequired[i] <= maxDay) {
-     point++
-  } else {
-      answer.push(point)
-      maxDay = dayRequired[i]
-      point = 1
-  }
+ for(let i = 0; i < days.length; i++) {
+    if(days[i] <= maxDay) {        
+        count++
+    } else {
+        answer.push(count)
+        count = 1;
+        maxDay = days[i]
+    }   
     
-   
-     
-}
-      if (point > 0) {
-    answer.push(point);
-  }
     
-    return answer
+ }
+  if(count > 0) answer.push(count)
+ return answer
 }
