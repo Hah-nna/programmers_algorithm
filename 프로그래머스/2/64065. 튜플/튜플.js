@@ -12,7 +12,8 @@ function solution(s) {
     
     
    const sortedArray = Array.from(tupleMap).sort((a, b) => b[1] - a[1]);
-   for(let key of sortedArray) {
+   
+    for(let key of sortedArray) {
        answer.push(+key[0])
    } 
     
