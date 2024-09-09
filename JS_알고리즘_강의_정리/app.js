@@ -1,9 +1,32 @@
 function solution(str) {
-  const sett = new Set(str);
-  let answer = "";
-  for (let i of sett) {
-    answer += i;
+  let stack = [];
+
+  for (let val of str) {
+    if (!isNaN(val)) {
+      stack.push(+val);
+    } else {
+      let right = stack.pop();
+      let left = stack.pop();
+
+      switch (val) {
+        case "+":
+          stack.push(left + right);
+          break;
+        case "-":
+          stack.push(left - right);
+          break;
+        case "*":
+          stack.push(left * right);
+          break;
+        case "/":
+          stack.push(left / right);
+          break;
+      }
+    }
   }
-  return answer;
+
+  return stack[0];
 }
-console.log(solution("ksekkset"));
+
+let str = "352+*9-";
+console.log(solution(str));

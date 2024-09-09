@@ -49,3 +49,34 @@ function solution(s) {
 
 let str = "352+*9-";
 console.log(solution(str));
+
+// 다시 풀어봄(switch)
+function solution(str) {
+  let stack = [];
+
+  for (let val of str) {
+    if (!isNaN(val)) {
+      stack.push(+val);
+    } else {
+      let right = stack.pop();
+      let left = stack.pop();
+
+      switch (val) {
+        case "+":
+          stack.push(left + right);
+          break;
+        case "-":
+          stack.push(left - right);
+          break;
+        case "*":
+          stack.push(left * right);
+          break;
+        case "/":
+          stack.push(left / right);
+          break;
+      }
+    }
+  }
+
+  return stack[0];
+}
