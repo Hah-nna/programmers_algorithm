@@ -20,10 +20,6 @@ function solution(need, plan) {
   return queue.join("") === need ? "YES" : "NO";
 }
 
-let a = "CBA";
-let b = "CABDGE";
-console.log(solution(a, b));
-
 // 위의 코드를 고쳐봄
 // index라는 변수를 하나 두고 need에 있는 것과 같으면 하나씩 더해줌
 function solution(need, plan) {
@@ -51,3 +47,33 @@ function solution(need, plan) {
 
   return queue.length === 0 ? "Yes" : "No";
 }
+
+////////////다시 풀어본 방법////////////
+
+function solution(a, b) {
+  // 1. q에 push하고 그게 a랑 같으면 ok 아니면 no
+  // 큐를 제대로 활용하지 못함 ㅠ
+  const subject = [...b];
+  const order = [...a];
+  let arr = [];
+  for (let i = 0, p = 0; i < subject.length; i++) {
+    if (subject[i] === order[p]) arr.push(order[p++]);
+  }
+  return arr.length !== a.length ? "NO" : "YES";
+}
+
+// 2. include
+// 하긴했는데 문제는 중간에 q.shift한거랑 str이 같지 않으면 반복문을 더 안 돌고 바로 no 리턴해도 될거같음
+//
+function solution(a, b) {
+  const classes = [...a];
+
+  for (let str of b) {
+    if (classes.includes(str) && classes[0] === str) classes.shift();
+    else return "NO";
+  }
+  return classes.length === 0 ? "YES" : "NO";
+}
+let a = "CBA";
+let b = "CBDAGE";
+console.log(solution(a, b));

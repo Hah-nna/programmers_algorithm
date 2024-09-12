@@ -30,3 +30,24 @@ function solution(s) {
 
 let a = "()(((()())(())()))(())";
 console.log(solution(a));
+
+// 다시 풀어봄
+function solution(arr) {
+  let answer = 0;
+  let stack = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "(") stack.push(arr[i]);
+    else {
+      if (arr[i - 1] === "(") {
+        stack.pop();
+        answer += stack.length;
+      } else {
+        stack.pop();
+        answer++;
+      }
+    }
+  }
+
+  return answer;
+}

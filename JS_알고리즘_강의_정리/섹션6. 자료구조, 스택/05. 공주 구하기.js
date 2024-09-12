@@ -23,3 +23,17 @@ function solution(n, k) {
 }
 
 console.log(solution(8, 3));
+
+// 다시 풀어본 방법
+// 큐를 안 씀 ㅎ...
+function solution(n, k) {
+  let q = Array.from({ length: n }, (v_, i) => i + 1);
+  let idx = 0;
+
+  while (q.length > 1) {
+    idx = (idx + k - 1) % q.length;
+
+    q.splice(idx, 1);
+  }
+  return q[0];
+}
