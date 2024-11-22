@@ -1,10 +1,10 @@
 # [level 0] 두 수의 나눗셈 - 120806 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120806?language=kotlin) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120806) 
 
 ### 성능 요약
 
-메모리: 62.4 MB, 시간: 0.02 ms
+메모리: 61.3 MB, 시간: 0.02 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 09월 19일 21:58:45
+2024년 11월 22일 23:52:11
 
 ### 문제 설명
 
